@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New User Registration</title>
+    <style>
+        .header {
+            text-align: center;
+            background-color: lightgray;
+            font-family: "Poppins", sans-serif;
+            font-size: 30px;
+            color: navy;
+            padding: 30px;
+        }
+        .form-section {
+            width: 50%;
+            margin: 40px auto;
+            padding: 40px;
+            border: 2px solid green;
+            border-radius: 10px;
+            background-color: #fcf8f8;
+            text-align: center;
+        }
+        .form-section h2 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .form-section input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-section button {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-section button:hover {
+            background-color: #45a049;
+        }
+        footer {
+            text-align: center;
+            background-color: lightgray;
+            font-family: "Poppins", sans-serif;
+            font-size: 18px;
+            color: navy;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        STUDENTS CONNECT
+    </div>
+
+    <section class="form-section">
+        <h2>New User Registration</h2>
+        <form action="registerProcess.html" method="POST">
+            <input type="text" name="username" placeholder="Enter Username" required>
+            <input type="email" name="email" placeholder="Enter Email" required>
+            <input type="password" name="password" placeholder="Enter Password" required>
+            <input type="password" name="confirmPassword" placeholder="Confirm Password" required>
+            <button type="submit">Register</button>
+        </form>
+    </section>
+
+    <footer>
+        2025@ Gnana Prakash - All Rights Reserved
+    </footer>
+</body>
+</html>

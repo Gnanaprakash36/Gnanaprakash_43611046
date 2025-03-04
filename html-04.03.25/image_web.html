@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+* { 
+    box-sizing: border-box; 
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.header {
+    background-color: #1a1a1a;
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.logo img {
+    width: 180px;
+    height: auto;
+}
+
+
+.menu-icon {
+    font-size: 28px;
+    cursor: pointer;
+    color: white;
+}
+
+
+.navbar {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 30px;
+    background: white;
+    border-radius: 8px;
+    width: 180px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #1a1a1a;
+    padding: 12px;
+    font-weight: 500;
+    display: block;
+    transition: 0.3s;
+}
+
+.navbar a:hover {
+    background: #007bff;
+    color: white;
+    border-radius: 5px;
+}
+
+
+.show {
+    display: flex;
+}
+
+
+.main-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    width: 85%;
+    background: white;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    margin-top: 40px;
+}
+
+
+.imageposition {
+    width: 45%;
+    padding: 15px;
+}
+
+.imageposition img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.text-section {
+    width: 50%;
+    padding: 30px;
+    text-align: left;
+}
+
+.text-section h2 {
+    color: #333;
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.text-section p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #555;
+}
+
+
+.button {
+    background-color: #007bff;
+    color: white;
+    padding: 14px 25px;
+    text-decoration: none;
+    font-size: 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+.button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+
+@media screen and (max-width: 900px) {
+    .main-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .imageposition, .text-section {
+        width: 100%;
+    }
+
+    .text-section {
+        padding: 20px;
+    }
+}
+
+</style>
+</head>
+<body>
+
+
+<div class="header">
+    <a href="https://en.wikipedia.org/wiki/Land_Rover_Defender" class="logo">
+        <img src="C:\Users\gnana\Desktop\html practice-04.03.2025\Land-Rover-Logo-1986-present.png" alt="Land-Rover-Logo">
+    </a>
+    
+    <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+    
+    <div class="navbar" id="navbar">
+        <a href="#home">Home</a>
+        <a href="C:\Users\gnana\Desktop\html practice-04.03.2025\students_connect.html">Contact</a>
+        <a href="#about">About</a>
+    </div>
+</div>
+
+<!-- Main Content -->
+<div class="main-container">
+    <!-- Image Section -->
+    <div class="imageposition">
+        <img src="C:\Users\gnana\Desktop\html practice-04.03.2025\defender.jpg" alt="Defender">
+    </div>
+
+    <!-- Text Section -->
+    <div class="text-section">
+        <h2>Land Rover Defender</h2>
+        <p>The Land Rover Defender is a rugged off-road SUV, known for its durability, advanced 4x4 capabilities, and iconic design. It’s built for adventure while offering luxury and comfort. Whether conquering the wild or navigating city streets, the Defender stands out with unmatched power and elegance.</p>
+
+        <button class="button" onclick="performAction()">Explore More</button>
+    </div>
+</div>
+
+<script>
+function toggleMenu() {
+    var menu = document.getElementById("navbar");
+    menu.classList.toggle("show");
+}
+
+function performAction() {
+    alert("Redirecting to more details...");
+    window.location.href = "https://en.wikipedia.org/wiki/Land_Rover_Defender";
+}
+</script>
+
+</body>
+</html>
