@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Grid with Zoom Effect</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #53d4eb;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .grid-item {
+            overflow: hidden;
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .grid-item img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            transition: transform 0.3s ease-in-out;
+            border: 2px solid red;
+        }
+
+        .grid-item:hover img {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="grid-container">
+        <div class="grid-item"><img src="C:\Users\gnana\Desktop\html sample\defender.jpg" alt="Image 1"></div>
+        <div class="grid-item"><img src="C:\Users\gnana\Desktop\html sample\g-wagon.jpeg" alt="Image 2"></div>
+        <div class="grid-item"><img src="C:\Users\gnana\Desktop\html sample\mustang.jpg" alt="Image 3"></div>
+    </div>
+
+</body>
+</html>
