@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serial Position Effect - Dropdpwn Design</title>
+    <style>
+        select{
+        padding:10px;
+        font-size:16px;
+        width:200px;
+    }
+    option:first-child,
+    option:last-child{
+        font-weight: bold;
+        color:green;
+    }
+    option.middle{
+        color:gray;
+    }
+    </style>
+</head>
+<body>
+    <h2>Select a Catergory(Serial Position Effect Applied)</h2>
+    <select id="categoryselect">
+        <option value="home">Home</option><!--Primary Effect-->
+        <option class="middle" value="about">About</option>
+        <option class="middle" value="services">services</option>
+        <option class="middle" value="portfolio">Portfolio</option>
+        <option class="middle" value="contact">Contact</option>
+        <option value="support">Support</option><!--Recency Effect-->
+    </select>
+    <script>
+        document.getElementById('categoryselect').addEventListener('change',function()
+        {
+        alert("You selected:" +this.value);
+    });
+    </script>
+</body>
+</html>
