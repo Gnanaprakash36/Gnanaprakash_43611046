@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Box model documentation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <p class="hd">CSS BOX MODEL Demonstration</p>
+    <div class="layout">
+        <div class="margin"></div>
+        <div class="border"></div>
+        <div class="padding"></div>
+        <div class="content"><p>content</p></div>
+    </div>
+
+    <div style="width:400px; margin:30px auto; background:#fff; border-radius:8px; box-shadow:0 2px 8px #ccc; padding:20px;">
+        <div style="margin-bottom:16px;">
+            <label for="margin">Margin: <span id="margin-value">40px</span></label>
+            <input type="range" id="margin" min="0" max="80" value="40" style="width:200px;">
+        </div>
+        <div style="margin-bottom:16px;">
+            <label for="border">Border: <span id="border-value">5px</span></label>
+            <input type="range" id="border" min="0" max="20" value="5" style="width:200px;">
+        </div>
+        <div>
+            <label for="padding">Padding: <span id="padding-value">20px</span></label>
+            <input type="range" id="padding" min="0" max="40" value="20" style="width:200px;">
+        </div>
+    </div>
+
+    <div class="bd">Box Model Components</div>
+    <div class="color-details">
+        <div class="color-row">
+            <span class="color-box margin-box"></span>
+            <strong>Margin</strong> - Space outside the border (transparent)
+        </div>
+        <div class="color-row">
+            <span class="color-box border-box"></span>
+            <strong>Border</strong> - Surrounds the padding and content
+        </div>
+        <div class="color-row">
+            <span class="color-box padding-box"></span>
+            <strong>Padding</strong> - Space between border and content
+        </div>
+        <div class="color-row">
+            <span class="color-box content-box"></span>
+            <strong>Content</strong> - Actual content of the box
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

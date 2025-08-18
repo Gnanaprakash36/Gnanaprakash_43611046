@@ -1,0 +1,102 @@
+        .hd {
+            text-align: center;
+            font-size: 30px;
+            font-weight: bold;
+        }
+        .layout {
+            width: 400px;
+            height: 300px;
+            margin: 40px auto;
+            position: relative;
+            background-color: #f7f7f7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .border {
+            position: absolute;
+            top: 20px; left: 20px;
+            width: calc(100% - 40px); height: calc(100% - 40px);
+            background: #d15710;
+            border: 5px solid #00000000;
+            box-sizing: border-box;
+            z-index: 2;
+        }
+        .padding {
+            position: absolute;
+            top: 40px; left: 40px;
+            width: calc(100% - 80px); height: calc(100% - 80px);
+            background: #f3e411;
+            padding: 20px;
+            box-sizing: border-box;
+            z-index: 3;
+        }
+        .content {
+            position: absolute;
+            top: 80px; left: 80px;
+            width: calc(100% - 160px); height: calc(100% - 160px);
+            background: #0f70e0;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+            z-index: 4;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .content p {
+            margin: 0;
+        }
+        .bd{
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+            box-sizing: border-box;
+            justify-content: center;
+        }
+        .color-details{
+            text-align: left;
+            font-size: 16px;
+            position: relative;
+            justify-content:flex-start;
+            box-sizing: border-box;
+            margin: 20px auto;
+            width: 400px;   
+            padding: 10px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            line-height: 1.5;
+            color: #333;
+        }
+         .color-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        .color-box {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+            vertical-align: middle;
+            border: 2px solid #ccc;
+        }
+        .margin-box {
+            background: transparent;
+            border: 2px dashed #ccc;
+        }
+        .border-box {
+            background: #d15710;
+            border: 2px solid #000;
+        }
+        .padding-box {
+            background: #f3e411;
+        }
+        .content-box {
+            background: #0f70e0;
+        }
