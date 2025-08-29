@@ -1,0 +1,270 @@
+show databases;
+use gnana;
+create database gnana_3;
+create database gnana;
+use gnana;
+create table student(regno int,name char(25),mobileno int);
+ALTER TABLE student RENAME COLUMN mobileno TO marks;
+use gnana;
+SELECT * FROM student;
+use gnana;
+show tables from gnana;
+insert into student(regno,name,marks)
+values
+(101,'gopal',78),
+(102,'varma',78),
+(103,'bharath',89);
+
+delete from student where regno=101;
+select * from student order by regno asc;
+
+alter table student add email varchar(25);
+
+alter table student add scountry varchar(25) default 'india';
+
+UPDATE student
+SET email = 'test@example.com'
+WHERE email IS NULL;
+
+update student
+set email= case name
+when 'gopal' then 'gopal@gmail.com'
+end
+where name in('gopal');
+
+SAVEPOINT sp1;
+
+CREATE TABLE Worker (
+	WORKER_ID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	FIRST_NAME CHAR(25),
+	LAST_NAME CHAR(25),
+	SALARY INT(15),
+	JOINING_DATE DATETIME,
+	DEPARTMENT CHAR(25)
+);
+
+INSERT INTO Worker 
+	(WORKER_ID, FIRST_NAME, LAST_NAME, SALARY, JOINING_DATE, DEPARTMENT) VALUES
+		(001, 'Monika', 'Arora', 100000, '14-02-20 09.00.00', 'HR'),
+		(002, 'Niharika', 'Verma', 80000, '14-06-11 09.00.00', 'Admin'),
+		(003, 'Vishal', 'Singhal', 300000, '14-02-20 09.00.00', 'HR'),
+		(004, 'Amitabh', 'Singh', 500000, '14-02-20 09.00.00', 'Admin'),
+		(005, 'Vivek', 'Bhati', 500000, '14-06-11 09.00.00', 'Admin'),
+		(006, 'Vipul', 'Diwan', 200000, '14-06-11 09.00.00', 'Account'),
+		(007, 'Satish', 'Kumar', 75000, '14-01-20 09.00.00', 'Account'),
+		(008, 'Geetika', 'Chauhan', 90000, '14-04-11 09.00.00', 'Admin');
+        
+show tables;
+
+select * from worker;
+start transaction;
+
+SAVEPOINT sp2;
+
+delete from worker where worker_id=006;
+
+rollback to sp1;
+
+insert into worker (WORKER_ID, FIRST_NAME, LAST_NAME, SALARY, JOINING_DATE, DEPARTMENT) values(06, 'Vipul', 'Diwan', 200000, '14-06-11 09.00.00', 'Account');
+
+select * from worker;
+
+rollback to sp2;
+
+savepoint sp3;
+
+delete from worker where worker_id=009;
+
+savepoint sp4;
+
+select * from worker;
+
+commit;
+
+select * from worker where first_name like 'm%';
+
+select * from worker where first_name like '_m%';
+
+select * from worker where department='admin' and salary>=200000;
+
+select * from worker where department='account' and salary<200000;
+
+select * from worker where salary=(select min(salary) from worker);
+
+select * from worker where salary=(select min(salary) from worker where department='admin');
+
+select * from worker where salary=(select max(salary) from worker);
+
+select * from worker where department like 'a%' and salary>=100000;
+
+select first_name,department from worker where salary>100000;
+
+select * from worker where first_name like 'v%';
+
+update worker set salary=salary+10000 where first_name='niharika';
+
+select * from worker where worker_id not in (1,2,5,7) and salary>20000;
+
+select * from worker where salary between 10000 and 200000 and department not in ('hr','admin');
+
+select * from worker where salary between 70000 and 300000 and department not in('hr','admin');
+
+select * from worker where first_name like 'v%' and salary>=200000;
+
+select * from worker where salary<100000 and department not in ('admin');
+
+select salary,first_name as max_salary_person from worker where salary=(select max(salary) from worker);
+
+select first_name,
+case
+	when salary>300000 then 'rich'
+    
+	when salary>=100000 and salary<=300000 then 'rich'
+	else 'poor'
+end
+as statusbasedonsalary
+from worker;
+
+select department,count(department) from worker
+group by department
+order by count(department) asc;
+
+select * from worker order by salary desc;
+
+
+select department,avg(salary) as AVG_salary from worker
+group by department;
+
+select department,max(salary) as Highest_sal_in_dept from worker
+group by department;
+
+select year(joining_date),count(year(joining_date)) from worker
+group by year(joining_date);
+
+select department,sum(salary) from worker
+group by department;
+
+select department,count(*) as total_worker
+from worker group by department having count(*)>=2;
+
+select salary,count(salary) from worker group by salary;
+
+select date(joining_date) as join_date,avg(salary) as salary from worker group by date(joining_date);
+
+select * from worker order by salary;
+
+select * from worker order by (joining_date) desc;
+
+select * from worker order by department asc,salary desc;
+
+select first_name,salary from worker order by salary desc limit 5;
+
+select concat(first_name,' ',last_name) as full_name, salary from worker order by salary desc;
+
+select department,count(*) not in (hr,admin) from worker;
+
+select * from worker order by salary desc limit 5 offset 5;
+
+select * from worker order by joining_date asc limit 3;
+
+select * from worker order by joining_date asc limit 2 offset 3;
+
+select * from worker order by salary desc limit 1 offset 1;
+
+select department,count(department) from worker group by department having count(department)>2;
+
+select department,avg(salary) as AVG_salary from worker group by salary having AVG_salary>100000;
+
+select department,max(salary) as MAX_SAL from worker group by department having MAX_SAL>50000;
+
+create table award_winners(
+id int,
+name varchar(25),
+award_name varchar(30));
+
+insert into award_winners values(001,'Karthick','Volleyball winners'),(002,'Gopi','Basketball Runners'),(003,'Adib','Oscar winners'),
+(004,'Harij','English SpellBee 2nd Runner-up'),(005,'Loki','Volleyball winners'),(006,'Sakthi','Badminton Nationals runners'),
+(007,'Iqhlas','Debug winners'),(008,'AK','Basketball runners'),(009,'Kamal','Hackathon runners'),
+(010,'Barath','Hackathon winners');
+
+select * from award_winners;
+
+create table students(
+id int,
+name varchar(25));
+
+insert into students values(005,'Loki'),(1001,'Srihari'),(1003,'Dinesh'),(001,'Karthick'),(1005,'Tharun'),
+(1006,'Vamsi'),(1007,'Monish'),(1008,'Rohith'),(1009,'Alwyn'),(1010,'Akash');
+
+select * from students;
+
+select * from students 
+where id=(select id from award_winners where id=5);
+
+select * from students 
+where id=(select id from award_winners where name="karthick");
+
+select * from award_winners
+where id=(select id from students where id=1);
+
+select * from award_winners
+where id=(select id from students where name="Loki");
+
+-- Employee Table
+CREATE TABLE Employee (
+    EmpID INT PRIMARY KEY,
+    EmpName VARCHAR(50),
+    DeptID INT,
+    Salary INT
+);
+
+-- Department Table
+CREATE TABLE Department (
+    DeptID INT PRIMARY KEY,
+    DeptName VARCHAR(50)
+);
+
+-- Project Table
+CREATE TABLE Project (
+    ProjID INT PRIMARY KEY,
+    ProjName VARCHAR(50),
+    EmpID INT
+);
+
+-- Insert Employees
+INSERT INTO Employee VALUES
+(1, 'Alice', 101, 50000),
+(2, 'Bob', 102, 60000),
+(3, 'Charlie', 103, 55000),
+(4, 'David', NULL, 40000),
+(5, 'Eva', 101, 70000);
+
+-- Insert Departments
+INSERT INTO Department VALUES
+(101, 'HR'),
+(102, 'Finance'),
+(103, 'IT'),
+(104, 'Admin');
+
+-- Insert Projects
+INSERT INTO Project VALUES
+(201, 'Payroll System', 2),
+(202, 'Recruitment Portal', 1),
+(203, 'Inventory Management', 3),
+(204, 'Security System', NULL);
+
+select * from employee;
+
+select * from department;
+
+select * from project;
+
+select empname,deptname from employee e inner join department d on e.deptid=d.deptid;
+
+select empname,projname from employee e inner join project p on e.empid=p.empid;
+
+select e.*,d.deptname from employee e left join department d on e.deptid= d.deptid;
+
+select e.empname,d.* from employee e right join department d on e.deptid=d.deptid;
+
+select e.empname,p.* from employee e right join project p on e.empid=p.empid;
